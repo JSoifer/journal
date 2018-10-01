@@ -1,9 +1,3 @@
-// export var Entry(inputtedEntry) =  {
-//   wordCount: function() {
-//     var words = inputtedEntry.split(" ");
-//     return words.length;
-//   }
-// }
 var consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'x', 'y', 'z', 'qu'];
 var vowels = ["a", "e", "i", "o", "u"];
 
@@ -43,18 +37,21 @@ Entry.prototype.vowels = function() {
 }
 
 Entry.prototype.getTeaser = function() {
-  var string = this.inputtedEntryBody.split(" ");
-  var stringLetters = this.inputtedEntryBody.split("");
+  var wordArray = this.inputtedEntryBody.split(" ");
 
-  if (string.length > 8 && stringLetters.indexOf(".") > 7) {
-    string.splice(8);
-    string = string.join(" ");
-  } else {
-    string = this.inputtedEntryBody.split("");
-    var periodLocation = string.indexOf(".");
-    string.splice(periodLocation + 1);
-    string = string.join("");
+  wordArray.forEach(function(word) {
+    if (word.includes(".")) {
+      var wordIndex = wordArray.indexOf(word);
+      console.log(wordIndex);
+      wordArray.splice(wordIndex +1);
+    }
+  })
+
+  if (wordArray.length >= 8) {
+    wordArray.splice(8);
   }
 
-  return string;
+  wordArray = wordArray.join(" ");
+  console.log(wordArray);
+  return wordArray;
 }
