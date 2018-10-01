@@ -3,26 +3,28 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script type="text/javascript" src="bundle.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <title>Journal</title>
 </head>
 <body>
   <h1>Journal</h1>
-  <form class="journal" action="index.html" method="post">
-
-    <input type="text" name="title" value="">
-    <label for="title">Title</label>
-    <input type="text" name="entry" value="">
-    <label for="entry">Entry</label>
-    <button type="submit" name="button">submit</button>
-  </form>
+  <div class="entry-form">
+    <form class="journal" action="index.html" method="post">
+      <label for="title">Title</label>
+      <input type="text" name="title" value="">
+      <label for="entry">Entry</label>
+      <textarea id="entryInput" type="text" name="entry" value=""></textarea>
+      <button type="submit" name="button">submit</button>
+    </form>
+  </div>
   <div class="entry-text">
-    <h1 class="title"></h1>
+    <h2 class="title"></h2>
     <p class="body"></p>
   </div>
   <div class="answer">
-    <p>Word Count: <span id="word-count"></span></p>
-    <p>Number of Consonants: <span id="consonants"></span></p>
-    <p>Number of Vowels: <span id="vowels"></span></p>
+    <p><span class="bold">Word Count:</span> <span id="word-count"></span></p>
+    <p><span class="bold">Number of Consonants:</span> <span id="consonants"></span></p>
+    <p><span class="bold">Number of Vowels:</span> <span id="vowels"></span></p>
   </div>
 </body>
 </html>
