@@ -9,6 +9,8 @@ $(document).ready(function() {
     var inputtedEntryTitle = $("input[name='title']").val();
     var inputtedEntryBody = $("input[name='entry']").val();
     var output = new Entry(inputtedEntryBody, inputtedEntryTitle);
+    $(".title").text(inputtedEntryTitle);
+    $(".body").text(output.getTeaser());
     $("#word-count").text(output.count());
     $("#consonants").text(output.consonants());
     $("#vowels").text(output.vowels());

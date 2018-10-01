@@ -27,8 +27,6 @@ Entry.prototype.consonants = function() {
     return vowels.indexOf(el) < 0;
   }
 
-  console.log(filteredArray);
-
   return filteredArray.length;
 }
 
@@ -41,7 +39,22 @@ Entry.prototype.vowels = function() {
     return consonants.indexOf(el) < 0;
   }
 
-  console.log(filteredVowelsArray);
-
   return filteredVowelsArray.length;
+}
+
+Entry.prototype.getTeaser = function() {
+  var string = this.inputtedEntryBody.split(" ");
+  var stringLetters = this.inputtedEntryBody.split("");
+
+  if (string.length > 8 && stringLetters.indexOf(".") > 7) {
+    string.splice(8);
+    string = string.join(" ");
+  } else {
+    string = this.inputtedEntryBody.split("");
+    var periodLocation = string.indexOf(".");
+    string.splice(periodLocation + 1);
+    string = string.join("");
+  }
+
+  return string;
 }
