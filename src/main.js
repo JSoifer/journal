@@ -7,12 +7,10 @@ $(document).ready(function() {
   $('.journal').submit(function(event) {
     event.preventDefault();
     var inputtedEntryTitle = $("input[name='title']").val();
-    // console.log(inputtedEntryTitle);
     var inputtedEntryBody = $("input[name='entry']").val();
-    // console.log(inputtedEntryBody);
     var output = new Entry(inputtedEntryBody, inputtedEntryTitle);
-    // console.log(output.count());
-    $("#result").text(output.count());
-    console.log(output.consonants());
+    $("#word-count").text(output.count());
+    $("#consonants").text(output.consonants());
+    $("#vowels").text(output.vowels());
   });
 });

@@ -4,7 +4,7 @@
 //     return words.length;
 //   }
 // }
-// var consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'x', 'y', 'z', 'qu'];
+var consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'x', 'y', 'z', 'qu'];
 var vowels = ["a", "e", "i", "o", "u"];
 
 export function Entry(inputtedEntryBody, inputtedEntryTitle) {
@@ -30,4 +30,18 @@ Entry.prototype.consonants = function() {
   console.log(filteredArray);
 
   return filteredArray.length;
+}
+
+Entry.prototype.vowels = function() {
+  var string = this.inputtedEntryBody.split(" ").join('');
+  var allTheLetters = string.split("");
+  var filteredVowelsArray = allTheLetters.filter(myCallBackVowels);
+
+  function myCallBackVowels(el) {
+    return consonants.indexOf(el) < 0;
+  }
+
+  console.log(filteredVowelsArray);
+
+  return filteredVowelsArray.length;
 }
